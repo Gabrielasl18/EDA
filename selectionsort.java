@@ -1,5 +1,5 @@
 /*
-a cada iteração, procura em toda a parcela não ordenado do vetor pelo menor(ou maior) elemento e o coloca em posição correta.Assim, na i-ésima iteração, o i-ésimo menor elemento vai para a posição i, e assim por diante.
+a cada iteração, procura em toda a parcela não ordenada do vetor pelo menor(ou maior) elemento e o coloca em posição correta.Assim, na i-ésima iteração, o i-ésimo menor elemento vai para a posição i, e assim por diante.
 */
 public class selectionsort{
     public selectionsort(){
