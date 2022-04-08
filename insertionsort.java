@@ -9,14 +9,13 @@
     ├──► Eficiente: para conjuntos pequenos de dados                   │
     ├──► Capaz de ordenar os dados a medida em que recebe(tempo real)  │
     └──────────────────────────────────────────────────────────────────┘
-
 */
 
 public class insertionsort {
     public static void main(String args[]){
 
         int numbers[] = new int[1000];
-        int i,j,aux;
+        int i;
 
         for(i=0;i<numbers.length;i++){
             numbers[i] = (int) (Math.random() * numbers.length);
