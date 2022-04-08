@@ -1,27 +1,51 @@
 /*
-a cada iteração, procura em toda a parcela não ordenada do vetor pelo menor(ou maior) elemento e o coloca em posição correta.Assim, na i-ésima iteração, o i-ésimo menor elemento vai para a posição i, e assim por diante.
+- A cada passo, procura o menor valor do array e o coloca na primeira posição do array.
+- Descarta-se a primeira posição do array e repete-se o processo para a segunda posição.
+- Isso é feito para todas as posicões do array.
+
+    PERFORMANCE:
+  ┌──────────────────────────────────────────────────────────────────┐
+  ├──► MELHOR CASO: O(N^2).                                          │
+  ├──► PIOR CASO: O(N^2).                                            │
+  ├──► ESTÁVEL: não altera a ordem de dados iguais                   │
+  ├──► INEFICIENTE: PARA GRANDES CONJUNTOS DE DADOS                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+
 */
 public class selectionsort{
-    public selectionsort(){
-
-        int i,j=0,aux,menor_index;
-        int vetor[] = new int[10];
-        System.out.println("DESORDENADO!\n");
-        for(i=0;i<vetor.length;i++){
-            vetor[i] = (int) (Math.random() * vetor.length);
-            System.out.println(vetor[i]);
+    public static void main(String[] args){
+        int numbers[] = new int[1000];
+        for(int i=0;i<numbers.length;i++){
+            numbers[i] = (int) (Math.random() * numbers.length);
         }
-        for(i=0;i<vetor.length-1;i++){
+        System.out.println("desordenado: ");
+        printArray(numbers);
+
+        Selection(numbers);
+        
+        System.out.println("\nordenado: ");
+        printArray(numbers);
+
+    }
+    private static void Selection(int[] inputArray){
+
+        int aux=0,menor_index;
+        long start = System.currentTimeMillis();
+        long end;
+        for(int i=0;i<inputArray.length-1;i++){
         aux = i;
-            for(j = i+ 1;j<vetor.length;j++){
-                if(vetor[j] < vetor[aux]){
+            for(int j = i+ 1;j<inputArray.length;j++){
+                if(inputArray[j] < inputArray[aux]){
                     aux = j;
                 }
             }
-        menor_index = vetor[aux];
-        vetor[aux] = vetor[i];
-        vetor[i] = menor_index;
+        menor_index = inputArray[aux];
+        inputArray[aux] = inputArray[i];
+        inputArray[i] = menor_index;
         }
+        end = System.currentTimeMillis();
+        System.out.println("tempo > " + (end - start) + "\n");
         /*SEGUNDA FORMA DE FAZER: for(i=0;i<vetor.length;i++){
             for(j=i+1; j<vetor.length; j++){
                 if(vetor[i] > vetor[j]){
@@ -31,12 +55,10 @@ public class selectionsort{
                 }
             }
         }*/
-        System.out.println("\nORDENADO!\n");
-        for(i=0;i<vetor.length;i++){
-            System.out.println(vetor[i]);
-        }
     }
-    public static void main(String[] args){
-        new selectionsort();
+    private static void printArray(int inputArray[]){
+        for(int i=0;i<inputArray.length;i++){
+            System.out.println(inputArray[i]);
+        }
     }
 }
