@@ -1,2 +1,2 @@
 # EDA
-Estrutura de Dados
+Estruturas de Dados.
